@@ -74,6 +74,9 @@ final class ResultView: UIView {
     
     func setup(result: [ResultModel]) {
         self.result = result
+        DispatchQueue.main.async {
+            self.tableview.reloadData()
+        }
     }
 }
 
