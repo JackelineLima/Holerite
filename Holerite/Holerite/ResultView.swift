@@ -23,7 +23,7 @@ final class ResultView: UIView {
         btn.layer.cornerRadius = 8
         btn.setTitle("FECHAR", for: .normal)
         btn.setTitleColor(.init(rgb: 0x343434), for: .normal)
-        btn.titleLabel?.font = .systemFont(ofSize: 15)
+        btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         btn.addTarget(self, action: #selector(didTapClose), for: .touchUpInside)
         return btn
     }()
