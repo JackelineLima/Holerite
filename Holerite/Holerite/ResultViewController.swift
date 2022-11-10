@@ -72,7 +72,7 @@ class ResultViewController: UIViewController {
             )
         }
         return NSAttributedString(
-            string: String(format: "%.2f", value),
+            string: "R$ \(String(format: "%.2f", value))",
             attributes: [:]
         )
     }
