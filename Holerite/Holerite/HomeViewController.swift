@@ -86,16 +86,16 @@ class HomeViewController: UIViewController {
         var IRRFPercentage: Double = 0.0
         
         let INSS = calculateINSS(with: wage)
-        INSS.forEach { inss, percentage in
-            INSSResult = inss
-            INSSPercentage = percentage
+        INSS.forEach { inss in
+            INSSResult = inss.total
+            INSSPercentage = inss.percentage
         }
         
         let wageForIRRF = wage - INSSResult
         let IRRF = calculateIRRF(with: wageForIRRF)
-        IRRF.forEach { irrf, percentage in
-            IRRFResult = irrf
-            IRRFPercentage = percentage
+        IRRF.forEach { irrf in
+            IRRFResult = irrf.total
+            IRRFPercentage = irrf.percentage
         }
         
         let wageWithDiscounts = IRRFResult + INSSResult + discounts
@@ -110,35 +110,56 @@ class HomeViewController: UIViewController {
                              discounts: discounts)
     }
     
-    func calculateINSS(with wage: Double) -> [Double: Double] {
-        
+    
+    func calculateINSS(with wage: Double) -> [SalaryRanges] {
+    
         switch wage {
         case minimumValue..<INSS.baseWage.first:
-            return [(wage * INSS.basePercentage.first)/percentage: INSS.basePercentage.first]
+            return [SalaryRanges(
+                total: (wage * INSS.basePercentage.first)/percentage,
+                percentage: INSS.basePercentage.first)]
         case INSS.baseWage.first..<INSS.baseWage.second:
-            return [(wage * INSS.basePercentage.second)/percentage - INSS.Deduction.first: INSS.basePercentage.second]
+            return [SalaryRanges(
+                total: (wage * INSS.basePercentage.second)/percentage - INSS.Deduction.first,
+                percentage: INSS.basePercentage.second)]
         case INSS.baseWage.second..<INSS.baseWage.third:
-            return [(wage * INSS.basePercentage.third)/percentage - INSS.Deduction.second: INSS.basePercentage.third]
+            return [SalaryRanges(
+                total: (wage * INSS.basePercentage.third)/percentage - INSS.Deduction.second,
+                percentage: INSS.basePercentage.third)]
         case INSS.baseWage.third..<INSS.baseWage.last:
-            return [(wage * INSS.basePercentage.last)/percentage - INSS.Deduction.last: INSS.basePercentage.last]
+            return [SalaryRanges(
+                total: (wage * INSS.basePercentage.last)/percentage - INSS.Deduction.last,
+                percentage: INSS.basePercentage.last)]
         default:
-            return [(wage - INSS.baseWage.roof): INSS.baseWage.roof]
+            return [SalaryRanges(
+                total: (wage - INSS.baseWage.roof),
+                percentage: INSS.baseWage.roof)]
         }
     }
     
-    func calculateIRRF(with wage: Double) -> [Double: Double] {
+    func calculateIRRF(with wage: Double) -> [SalaryRanges] {
         
         switch wage {
         case minimumValue..<IRRF.baseWage.first:
-            return [minimumValue: minimumValue]
+            return [SalaryRanges(
+                total: minimumValue,
+                percentage: minimumValue)]
         case IRRF.baseWage.first..<IRRF.baseWage.second:
-            return [(wage * IRRF.basePercentage.first)/percentage - IRRF.Deduction.first: IRRF.basePercentage.first]
+            return [SalaryRanges(
+                total: (wage * IRRF.basePercentage.first)/percentage - IRRF.Deduction.first,
+                percentage: IRRF.basePercentage.first)]
         case IRRF.baseWage.second..<IRRF.baseWage.third:
-            return [(wage * IRRF.basePercentage.second)/percentage - IRRF.Deduction.second: IRRF.basePercentage.second]
+            return [SalaryRanges(
+                total: (wage * IRRF.basePercentage.second)/percentage - IRRF.Deduction.second,
+                percentage: IRRF.basePercentage.second)]
         case IRRF.baseWage.third..<IRRF.baseWage.last:
-            return [(wage * IRRF.basePercentage.third)/percentage - IRRF.Deduction.third: IRRF.basePercentage.third]
+            return [SalaryRanges(
+                total: (wage * IRRF.basePercentage.third)/percentage - IRRF.Deduction.third,
+                percentage: IRRF.basePercentage.third)]
         default:
-            return [(wage * IRRF.basePercentage.last)/percentage - IRRF.Deduction.last: IRRF.basePercentage.last]
+            return [SalaryRanges(
+                total: (wage * IRRF.basePercentage.last)/percentage - IRRF.Deduction.last,
+                percentage: IRRF.basePercentage.last)]
         }
     }
 }

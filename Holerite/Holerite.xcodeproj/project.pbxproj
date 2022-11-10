@@ -23,6 +23,7 @@
 		37A0E315291C02AA00912B6E /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A0E314291C02AA00912B6E /* CurrencyTextField.swift */; };
 		37A0E317291C200E00912B6E /* HoleriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A0E316291C200E00912B6E /* HoleriteModel.swift */; };
 		37A0E319291C5CD300912B6E /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A0E318291C5CD300912B6E /* ResultModel.swift */; };
+		37F83DC8291D3D3200BD0EB3 /* SalaryRanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F83DC7291D3D3200BD0EB3 /* SalaryRanges.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		37A0E314291C02AA00912B6E /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		37A0E316291C200E00912B6E /* HoleriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleriteModel.swift; sourceTree = "<group>"; };
 		37A0E318291C5CD300912B6E /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		37F83DC7291D3D3200BD0EB3 /* SalaryRanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryRanges.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				37A0E318291C5CD300912B6E /* ResultModel.swift */,
 				37A0E316291C200E00912B6E /* HoleriteModel.swift */,
+				37F83DC7291D3D3200BD0EB3 /* SalaryRanges.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				37A0E088291AE25F00912B6E /* UIColor+Extensions.swift in Sources */,
 				37A0E315291C02AA00912B6E /* CurrencyTextField.swift in Sources */,
 				376BB095291AD96F00FD54D7 /* ResultView.swift in Sources */,
+				37F83DC8291D3D3200BD0EB3 /* SalaryRanges.swift in Sources */,
 				37A0E317291C200E00912B6E /* HoleriteModel.swift in Sources */,
 				376BB07F291AD53700FD54D7 /* AppDelegate.swift in Sources */,
 				376BB081291AD53700FD54D7 /* SceneDelegate.swift in Sources */,
